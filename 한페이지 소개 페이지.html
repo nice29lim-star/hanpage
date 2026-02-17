@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한페이지 컴퍼니 | 한페이지 교육회사</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- AOS Library for Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            scroll-behavior: smooth;
+            word-break: keep-all;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 50%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, rgba(255, 255, 255, 1) 100%);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #2563eb;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .curriculum-list li::before {
+            content: "•";
+            color: #3b82f6;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800">
+
+    <!-- Header & Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-blue-200">
+                    <span class="text-white font-bold">1</span>
+                </div>
+                <h1 class="text-xl font-bold tracking-tight text-slate-900">ONEPAGE <span class="text-blue-600">COMPANY</span></h1>
+            </div>
+            <nav class="hidden md:flex space-x-10 font-medium text-sm text-slate-600">
+                <a href="#vision" class="nav-link hover:text-blue-600 transition-colors">비전</a>
+                <a href="#programs" class="nav-link hover:text-blue-600 transition-colors">교육 프로그램</a>
+                <a href="#contact" class="nav-link hover:text-blue-600 transition-colors">문의하기</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="#contact" class="bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-blue-700 transition-all shadow-md shadow-blue-100">교육 문의</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- [Section 1: Hero] -->
+    <section class="relative pt-48 pb-40 overflow-hidden hero-gradient">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <div data-aos="fade-up">
+                <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full">Digital Humanism Education</span>
+                <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-8 text-slate-900">
+                    급변하는 디지털 시대,<br/>
+                    <span class="gradient-text">나만의 페이지를 써 내려가는 힘</span>
+                </h2>
+                <p class="text-lg md:text-xl text-slate-500 mb-12 max-w-2xl mx-auto leading-relaxed">
+                    한페이지 컴퍼니는 '평범한 사람들의 꿈'이라는 소재를 진로와 연결해 학생들에게 희망을 전하고, 꿈에 대해 질문을 할 수 있게 도와주는 마주걷는 교육회사입니다. 
+                </p>
+                <div class="flex justify-center items-center">
+                    <a href="#programs" class="px-10 py-4 bg-slate-900 text-white rounded-xl font-bold hover:bg-black transition-all shadow-xl">프로그램 상세 보기</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div class="absolute top-1/4 right-0 translate-x-1/3 w-72 h-72 bg-sky-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+    </section>
+
+    <!-- [Section 2: Message & Vision] -->
+    <section id="vision" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h3 class="text-3xl font-bold mb-16 text-slate-900" data-aos="fade-up">왜 한페이지 교육인가?</h3>
+            
+            <div class="grid md:grid-cols-2 gap-8 items-center mb-24">
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 text-left" data-aos="fade-right">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="p-3 bg-slate-100 text-slate-500 rounded-2xl">
+                            <i data-lucide="cpu" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-lg font-bold text-slate-700">인공지능(AI)의 시대</span>
+                    </div>
+                    <ul class="space-y-4 text-slate-500">
+                        <li class="flex items-start">
+                            <i data-lucide="minus" class="w-5 h-5 text-slate-300 mr-2 mt-0.5"></i>
+                            방대한 데이터 연산 및 패턴 분석의 효율화
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="minus" class="w-5 h-5 text-slate-300 mr-2 mt-0.5"></i>
+                            지치지 않는 학습을 통한 생산성 극대화
+                        </li>
+                        <li class="flex items-start italic font-medium">
+                            한계: 인간 고유의 공감 능력 및 윤리적 판단력 부재
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-blue-600 p-10 rounded-3xl shadow-xl shadow-blue-100 text-left text-white" data-aos="fade-left">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="p-3 bg-white/20 text-white rounded-2xl">
+                            <i data-lucide="heart" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-lg font-bold">인간(Human)의 핵심 역량</span>
+                    </div>
+                    <ul class="space-y-4 text-blue-50">
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-blue-300 mr-2 mt-0.5"></i>
+                            <b>인성:</b> 디지털 생태계 속 타인과의 연대 및 공감
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-blue-300 mr-2 mt-0.5"></i>
+                            <b>진로:</b> 기계가 대신 정해줄 수 없는 삶의 방향 설정
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-blue-300 mr-2 mt-0.5"></i>
+                            <b>윤리:</b> 올바른 기술 활용을 위한 주체적 태도
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-up">
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full border-4 border-blue-100 flex items-center justify-center mb-4 bg-white shadow-inner">
+                        <i data-lucide="users" class="w-8 h-8 text-blue-600"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 text-slate-900">인성</h4>
+                    <p class="text-slate-500 text-sm">'함께' 할 줄 아는 인성교육</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full border-4 border-sky-100 flex items-center justify-center mb-4 bg-white shadow-inner">
+                        <i data-lucide="compass" class="w-8 h-8 text-sky-600"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 text-slate-900">진로</h4>
+                    <p class="text-slate-500 text-sm">'진정한 나'를 찾는 진로교육</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full border-4 border-cyan-100 flex items-center justify-center mb-4 bg-white shadow-inner">
+                        <i data-lucide="shield-check" class="w-8 h-8 text-cyan-600"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 text-slate-900">윤리</h4>
+                    <p class="text-slate-500 text-sm">'올바르게 생각하고 행동' 하는 디지털 윤리교육</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [Section 3: Programs] -->
+    <section id="programs" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <span class="text-blue-600 font-bold mb-2 block uppercase tracking-wider text-sm">Curriculum</span>
+                <h3 class="text-4xl font-bold text-slate-900">상세 교육 프로그램 소개</h3>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-12">
+                <!-- (1) 인성 교육 프로그램 -->
+                <div class="bg-white rounded-[2.5rem] p-10 md:p-16 border border-slate-100 shadow-xl shadow-blue-900/5" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row gap-12">
+                        <div class="md:w-1/3">
+                            <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-blue-600">
+                                <i data-lucide="smile" class="w-10 h-10"></i>
+                            </div>
+                            <h4 class="text-3xl font-extrabold mb-4 text-slate-900">함께할 줄 아는<br/>인성교육</h4>
+                            <div class="p-6 bg-blue-50 rounded-2xl border border-blue-100">
+                                <p class="text-blue-800 font-bold mb-2 text-sm">💡 교육 기대효과</p>
+                                <ul class="text-blue-600 text-xs space-y-2 leading-relaxed">
+                                    <li>• 공동체 안에서 나를 인식하고 올바르게 행동할 수 있게 된다.</li>
+                                    <li>• 감정과 행동을 스스로 제어할 줄 아는 자기조절 역량이 성장한다.</li>
+                                    <li>• 주어진 환경에 맞는 에티켓과 예절을 이해하고 행동할 수 있는 역량이 쌓인다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 grid sm:grid-cols-2 gap-8">
+                            <div class="space-y-4">
+                                <h5 class="font-bold text-blue-600 flex items-center"><span class="w-6 h-6 bg-blue-600 text-white text-[10px] rounded-full flex items-center justify-center mr-2">C1</span> 인성 마인드 제고</h5>
+                                <ul class="curriculum-list pl-4 space-y-2 text-sm text-slate-600">
+                                    <li>진정한 존중이란? (남을 낮추지 않는 존중의 의미)</li>
+                                    <li>나를 먼저 존중하자! (자기존중감 함양)</li>
+                                    <li>나를 대하듯 타인 존중하기</li>
+                                </ul>
+                                <h5 class="font-bold text-blue-600 flex items-center pt-4"><span class="w-6 h-6 bg-blue-600 text-white text-[10px] rounded-full flex items-center justify-center mr-2">C2</span> 인성 리터러시</h5>
+                                <ul class="curriculum-list pl-4 space-y-2 text-sm text-slate-600">
+                                    <li>어떤 감정으로 어떻게 소통해야 하는가</li>
+                                    <li>충동적인 감정 이해 및 조절하기</li>
+                                    <li>화와 소통의 이해를 통한 '매너 있는 사람' 되기</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-4">
+                                <h5 class="font-bold text-blue-600 flex items-center"><span class="w-6 h-6 bg-blue-600 text-white text-[10px] rounded-full flex items-center justify-center mr-2">C3</span> 인성 회복탄력성</h5>
+                                <ul class="curriculum-list pl-4 space-y-2 text-sm text-slate-600">
+                                    <li>관계 속 상처 극복 방법 이해</li>
+                                    <li>관계를 유지하고 좋은 단계로 발전시키는 법</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- (2) 진로 교육 프로그램 -->
+                <div class="bg-white rounded-[2.5rem] p-10 md:p-16 border border-slate-100 shadow-xl shadow-blue-900/5" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row gap-12">
+                        <div class="md:w-1/3">
+                            <div class="w-16 h-16 bg-sky-50 rounded-2xl flex items-center justify-center mb-6 text-sky-600">
+                                <i data-lucide="map" class="w-10 h-10"></i>
+                            </div>
+                            <h4 class="text-3xl font-extrabold mb-4 text-slate-900">진정한 나를 찾는<br/>진로교육</h4>
+                            <div class="p-6 bg-sky-50 rounded-2xl border border-sky-100">
+                                <p class="text-sky-800 font-bold mb-2 text-sm">💡 교육 기대효과</p>
+                                <ul class="text-sky-600 text-xs space-y-2 leading-relaxed">
+                                    <li>• 꿈을 찾기 위해 제대로 고민할 수 있는 역량이 성장한다.</li>
+                                    <li>• 내가 찾은 꿈의 길을 잃지 않고 꾸준히 나아갈 수 있게 된다.</li>
+                                    <li>• 위기 속에서도 스스로를 다독이며 극복하는 역량이 쌓인다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 grid sm:grid-cols-2 gap-8">
+                            <div class="space-y-4">
+                                <h5 class="font-bold text-sky-600 flex items-center"><span class="w-6 h-6 bg-sky-600 text-white text-[10px] rounded-full flex items-center justify-center mr-2">C1</span> 진로 마인드 제고</h5>
+                                <ul class="curriculum-list pl-4 space-y-2 text-sm text-slate-600">
+                                    <li>세상이 정해준 것이 아닌 '나만의 꿈' 찾기</li>
+                                    <li>자존감 향상을 통한 꿈 가꾸기</li>
+                                </ul>
+                                <h5 class="font-bold text-sky-600 flex items-center pt-4"><span class="w-6 h-6 bg-sky-600 text-white text-[10px] rounded-full flex items-center justify-center mr-2">C2</span> 진로 리터러시</h5>
+                                <ul class="curriculum-list pl-4 space-y-2 text-sm text-slate-600">
+                                    <li>진정한 꿈을 찾아 나가는 방법론 이해</li>
+                                    <li>점이 아닌 과정으로서의 '길' 이해</li>
+                                    <li>여정에 필요한 고민, 선택, 결정 역량 전달</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-4">
+                                <h5 class="font-bold text-sky-600 flex items-center"><span class="w-6 h-6 bg-sky-600 text-white text-[10px] rounded-full flex items-center justify-center mr-2">C3</span> 진로 회복탄력성</h5>
+                                <ul class="curriculum-list pl-4 space-y-2 text-sm text-slate-600">
+                                    <li>꿈을 향해 나아가며 자신을 지켜내는 법</li>
+                                    <li>어려움을 끝까지 극복하고 달성하는 오뚝이 정신</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- (3) 디지털 윤리 교육 프로그램 -->
+                <div class="bg-white rounded-[2.5rem] p-10 md:p-16 border border-slate-100 shadow-xl shadow-blue-900/5" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row gap-12">
+                        <div class="md:w-1/3">
+                            <div class="w-16 h-16 bg-cyan-50 rounded-2xl flex items-center justify-center mb-6 text-cyan-600">
+                                <i data-lucide="shield" class="w-10 h-10"></i>
+                            </div>
+                            <h4 class="text-3xl font-extrabold mb-4 text-slate-900">올바르게 행동하는<br/>디지털 윤리교육</h4>
+                            <div class="p-6 bg-cyan-50 rounded-2xl border border-cyan-100">
+                                <p class="text-cyan-800 font-bold mb-2 text-sm">💡 교육 기대효과</p>
+                                <ul class="text-cyan-600 text-xs space-y-2 leading-relaxed">
+                                    <li>• 사이버 폭력의 유형을 알고 건전한 문화를 선도할 수 있게 된다.</li>
+                                    <li>• 디지털 도구 이면의 문제점을 인지하고 유익한 방향으로 활용한다.</li>
+                                    <li>• 최신 기술 환경에서 책임감 있는 콘텐츠 사용자가 된다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 grid sm:grid-cols-2 gap-8">
+                            <div class="space-y-4">
+                                <h5 class="font-bold text-cyan-600 flex items-center"><span class="w-6 h-6 bg-cyan-600 text-white text-[10px] rounded-full flex items-center justify-center mr-2">C1</span> 사이버 폭력 예방 워크숍</h5>
+                                <ul class="curriculum-list pl-4 space-y-2 text-sm text-slate-600">
+                                    <li>윤리적 관점에서 본 사이버 폭력의 위험성</li>
+                                    <li>사례와 판례 중심의 경각심 유발 및 예방</li>
+                                    <li>건전한 온라인 문화 형성 방법</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-4">
+                                <h5 class="font-bold text-cyan-600 flex items-center"><span class="w-6 h-6 bg-cyan-600 text-white text-[10px] rounded-full flex items-center justify-center mr-2">C2</span> 딥페이크 & 저작권 교육</h5>
+                                <ul class="curriculum-list pl-4 space-y-2 text-sm text-slate-600">
+                                    <li>생성형 AI 기술의 올바른 활용 가이드</li>
+                                    <li>딥페이크 악용 문제 및 저작권 침해 예방</li>
+                                    <li>최신 기술 동향 및 법적 이슈 이해</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [Section 4: Contact & Support] -->
+    <section id="contact" class="py-32 bg-slate-900 text-white overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-blue-600/10 skew-x-12 translate-x-1/4"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h3 class="text-4xl md:text-5xl font-extrabold mb-8 leading-tight">교육의 새로운 한 페이지,<br/><span class="text-blue-400">지금 함께 시작하세요.</span></h3>
+                <p class="text-slate-400 text-lg">프로그램 협의 및 일정 문의는 아래 연락처를 통해 신속하게 답변 드립니다.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white/5 backdrop-blur-sm p-10 rounded-3xl border border-white/10 hover:border-blue-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="mail" class="w-6 h-6"></i>
+                    </div>
+                    <h5 class="font-bold text-xl mb-2 text-white">이메일 문의</h5>
+                    <p class="text-blue-400 font-medium">onepage@onepage.or.kr</p>
+                    <p class="text-slate-500 text-xs mt-2">제안서 및 자료 요청 가능</p>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-sm p-10 rounded-3xl border border-white/10 hover:border-blue-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="phone" class="w-6 h-6"></i>
+                    </div>
+                    <h5 class="font-bold text-xl mb-2 text-white">전화 상담</h5>
+                    <p class="text-blue-400 font-medium text-lg tracking-wider">010-8503-2130</p>
+                    <p class="text-slate-500 text-xs mt-2">서윤호 대표 강사 직통</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-100 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-12">
+                <div class="flex items-center space-x-2">
+                    <div class="w-6 h-6 bg-slate-900 rounded flex items-center justify-center">
+                        <span class="text-white text-[10px] font-bold">1</span>
+                    </div>
+                    <span class="font-bold text-slate-900 tracking-tight">ONEPAGE COMPANY</span>
+                </div>
+                <div class="text-xs text-slate-400 mt-4 md:mt-0 text-center md:text-right">
+                    <p>&copy; 2024 ONEPAGE COMPANY. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out-expo',
+            once: true,
+            offset: 50,
+        });
+
+        lucide.createIcons();
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

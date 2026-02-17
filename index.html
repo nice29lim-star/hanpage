@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한페이지 컴퍼니 | 성장의 한 페이지를 기록하다</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { skyBlue: '#D6E6F5', realNavy: '#09181B', mutedSlate: '#5A6B7C', cyan: '#00A9CE', bgGray: '#F8FAFC' },
+                    fontFamily: { sans: ['Pretendard', 'sans-serif'] },
+                    boxShadow: { 'card': '0 20px 40px rgba(9, 24, 27, 0.06)', 'card-hover': '0 35px 60px rgba(0, 169, 206, 0.15)' }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.03); }
+        .hero-section { background: linear-gradient(180deg, #D6E6F5 0%, #E6F0FA 100%); position: relative; overflow: hidden; }
+        .hero-section::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 60%); animation: breathe 10s infinite alternate; }
+        @keyframes breathe { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
+        .icon-wrapper { background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 100%); display: flex; align-items: center; justify-content: center; border-radius: 50%; box-shadow: 0 10px 25px rgba(127, 146, 163, 0.2); }
+    </style>
+</head>
+<body class="bg-bgGray text-realNavy font-sans antialiased overflow-x-hidden">
+
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <span class="font-extrabold text-2xl tracking-tight text-realNavy group-hover:text-cyan transition-colors">한페이지</span>
+            </a>
+            
+            <div class="flex items-center gap-4">
+                <!-- 홈으로 가기 버튼 추가 -->
+                <a href="index.html" class="text-sm font-bold text-mutedSlate hover:text-realNavy transition-colors flex items-center gap-1 px-2 py-1">
+                    <i class="fa-solid fa-house"></i> <span class="hidden sm:inline">홈으로</span>
+                </a>
+                <div class="hidden md:block text-sm text-white font-bold bg-realNavy px-4 py-1.5 rounded-full shadow-md">진로 & 인성 교육 전문</div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section h-[600px] flex flex-col justify-center items-center text-center px-4 relative">
+        <div class="relative z-10" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 text-realNavy tracking-tight">
+                꿈을 찾는 <span class="text-cyan inline-block relative">한 페이지<svg class="absolute w-full h-3 -bottom-1 left-0 text-cyan opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="8" fill="none" /></svg></span>의 힘
+            </h1>
+            <p class="text-lg md:text-xl font-medium text-mutedSlate max-w-2xl mx-auto leading-relaxed">진로를 향한 여정에 필요한<br class="md:hidden" /> 중고등 맞춤 솔루션을 제공합니다.</p>
+        </div>
+        <div class="absolute bottom-10 animate-bounce text-realNavy/40 z-10"><i class="fa-solid fa-chevron-down text-2xl"></i></div>
+    </section>
+
+    <div class="max-w-7xl mx-auto px-6 -mt-24 relative z-10 pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- 링크 연결: 한페이지 소개 페이지.html -->
+            <a href="한페이지 소개 페이지.html" class="bg-white rounded-[2rem] p-8 md:p-10 shadow-card hover:shadow-card-hover hover:-translate-y-3 transition-all duration-300 border border-white/50 group block h-full flex flex-col items-center text-center w-full" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon-wrapper w-32 h-32 mb-8 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-book-open text-5xl text-cyan"></i></div>
+                <h2 class="text-2xl font-bold mb-4 text-realNavy group-hover:text-cyan transition-colors">교육 프로그램</h2>
+                <p class="text-mutedSlate mb-8 leading-relaxed flex-grow">인성에서 진로 설계까지<br>한페이지 컴퍼니만의 체계적인 배움</p>
+                <div class="inline-block px-6 py-2 rounded-full bg-skyBlue text-sm font-bold text-realNavy group-hover:bg-cyan group-hover:text-white transition-colors">커리큘럼 확인 <i class="fa-solid fa-arrow-right ml-1"></i></div>
+            </a>
+
+            <!-- 링크 연결: 한페이지 강사 소개.html -->
+            <a href="한페이지 강사 소개.html" class="bg-white rounded-[2rem] p-8 md:p-10 shadow-card hover:shadow-card-hover hover:-translate-y-3 transition-all duration-300 border border-white/50 group block h-full flex flex-col items-center text-center w-full" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon-wrapper w-32 h-32 mb-8 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-users text-5xl text-cyan"></i></div>
+                <h2 class="text-2xl font-bold mb-4 text-realNavy group-hover:text-cyan transition-colors">파트너 소개</h2>
+                <p class="text-mutedSlate mb-8 leading-relaxed flex-grow">전문 대표강사와 PM 그룹이<br>학생들과 함께 호흡하는 멘토링</p>
+                <div class="inline-block px-6 py-2 rounded-full bg-skyBlue text-sm font-bold text-realNavy group-hover:bg-cyan group-hover:text-white transition-colors">강사진 프로필 <i class="fa-solid fa-arrow-right ml-1"></i></div>
+            </a>
+
+            <!-- 링크 연결: 한페이지 사&동영상 페이지.html -->
+            <a href="한페이지 교육 자료 페이지.html" class="bg-white rounded-[2rem] p-8 md:p-10 shadow-card hover:shadow-card-hover hover:-translate-y-3 transition-all duration-300 border border-white/50 group block h-full flex flex-col items-center text-center w-full" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon-wrapper w-32 h-32 mb-8 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-images text-5xl text-cyan"></i></div>
+                <h2 class="text-2xl font-bold mb-4 text-realNavy group-hover:text-cyan transition-colors">교육 활동 현장</h2>
+                <p class="text-mutedSlate mb-8 leading-relaxed flex-grow">텍스트가 아닌 경험으로 배우는 시간<br>생생한 활동 영상과 이미지 갤러리</p>
+                <div class="inline-block px-6 py-2 rounded-full bg-skyBlue text-sm font-bold text-realNavy group-hover:bg-cyan group-hover:text-white transition-colors">현장 보러가기 <i class="fa-solid fa-arrow-right ml-1"></i></div>
+            </a>
+        </div>
+    </div>
+
+    <section class="bg-white py-20 px-6 border-t border-slate-100">
+        <div class="max-w-4xl mx-auto text-center" data-aos="zoom-in">
+            <h3 class="text-3xl font-bold mb-6 text-realNavy">성장의 첫 페이지를 함께 쓰세요</h3>
+            <p class="text-mutedSlate mb-10">교육 프로그램 문의 및 상담은 언제나 열려있습니다.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button onclick="openContactModal()" class="inline-flex justify-center items-center px-8 py-4 bg-realNavy text-white rounded-xl font-bold hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">프로그램 문의하기</button>
+                <a href="https://c4b060e3ixlqwppf.public.blob.vercel-storage.com/%EB%A7%88%EC%A3%BC%EA%B1%B7%EB%8A%94%20%EC%82%AC%EB%9E%8C%20%EB%A6%AC%ED%94%8C%EB%A0%9B%28%EB%B8%94%EB%A3%A8%29.pdf" target="_blank" class="inline-flex justify-center items-center px-8 py-4 bg-white border-2 border-slate-200 text-realNavy rounded-xl font-bold hover:border-cyan hover:text-cyan transition-all">브로셔 다운로드</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white pt-16 pb-12 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="font-extrabold text-2xl text-slate-300 mb-6">ONEPAGE COMPANY</div>
+            <div class="text-slate-400 text-sm leading-loose">
+                <p>문의: onepage@onepage.or.kr | 대표번호: 010-8503-2130</p>
+                <p class="mt-2">Copyright © 2025 한페이지 컴퍼니. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 문의하기 모달 (공통 사용) -->
+    <div id="contactModal" class="fixed inset-0 bg-black/60 z-[9999] hidden flex items-center justify-center backdrop-blur-sm opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-[90%] mx-auto shadow-2xl transform scale-95 transition-transform duration-300 relative contact-modal-content">
+            <button onclick="closeContactModal()" class="absolute top-4 right-4 text-slate-400 hover:text-realNavy transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <div class="text-center mb-8">
+                <div class="w-16 h-16 bg-cyan/10 rounded-full flex items-center justify-center mx-auto mb-4 text-cyan text-2xl"><i class="fa-regular fa-paper-plane"></i></div>
+                <h3 class="text-2xl font-bold text-realNavy mb-2">프로그램 문의</h3>
+                <p class="text-mutedSlate text-sm">궁금하신 점을 언제든 문의해주세요.</p>
+            </div>
+            <div class="space-y-4">
+                <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 border border-slate-100 hover:border-cyan/30 transition-colors">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm text-cyan"><i class="fa-solid fa-phone"></i></div>
+                    <div><p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Representative</p><a href="tel:010-8503-2130" class="text-lg font-bold text-realNavy hover:text-cyan transition-colors">010-8503-2130</a></div>
+                </div>
+                <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 border border-slate-100 hover:border-cyan/30 transition-colors">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm text-cyan"><i class="fa-solid fa-envelope"></i></div>
+                    <div><p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Email Inquiry</p><a href="mailto:onepage@onepage.or.kr" class="text-lg font-bold text-realNavy hover:text-cyan transition-colors break-all">onepage@onepage.or.kr</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        AOS.init({ once: true, offset: 100, duration: 800, easing: 'ease-out-cubic' });
+        window.addEventListener('scroll', () => { const nav = document.getElementById('navbar'); if (window.scrollY > 50) nav.classList.add('shadow-md'); else nav.classList.remove('shadow-md'); });
+        const contactModal = document.getElementById('contactModal'); const contactContent = document.querySelector('.contact-modal-content');
+        function openContactModal() { contactModal.classList.remove('hidden'); setTimeout(() => { contactModal.classList.remove('opacity-0'); contactContent.classList.remove('scale-95'); contactContent.classList.add('scale-100'); }, 10); document.body.style.overflow = 'hidden'; }
+        function closeContactModal() { contactModal.classList.add('opacity-0'); contactContent.classList.remove('scale-100'); contactContent.classList.add('scale-95'); setTimeout(() => { contactModal.classList.add('hidden'); document.body.style.overflow = 'auto'; }, 300); }
+        window.addEventListener('click', (e) => { if (e.target === contactModal) closeContactModal(); });
+    </script>
+</body>
+</html>

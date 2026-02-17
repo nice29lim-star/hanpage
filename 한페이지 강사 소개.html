@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파트너 소개 | 한페이지 컴퍼니</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Pretendard) -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        skyBlue: '#D6E6F5',
+                        realNavy: '#09181B',
+                        mutedSlate: '#5A6B7C',
+                        cyan: '#00A9CE',
+                        bgGray: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { word-break: keep-all; }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+        }
+        .career-dot::before {
+            content: "•";
+            color: #00A9CE;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        .profile-image-container {
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+            border-radius: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-bgGray text-realNavy font-sans antialiased">
+
+    <!-- 네비게이션 -->
+    <nav class="fixed w-full z-50 glass-nav shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <span class="font-extrabold text-2xl tracking-tight text-realNavy group-hover:text-cyan transition-colors">한페이지</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-bold">
+                <a href="#" class="hover:text-cyan transition-colors"></a>
+                <a href="#" class="bg-realNavy text-white px-5 py-2 rounded-full hover:bg-cyan transition-all">강사 소개</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 히어로 섹션 -->
+    <section class="pt-40 pb-20 bg-skyBlue relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+            <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-cyan uppercase bg-white rounded-full shadow-sm">Our Partners</span>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6" data-aos="fade-up">성장의 한 페이지를 함께 써내려가는<br><span class="text-cyan">한페이지의 파트너</span>들을 소개합니다.</h1>
+            <p class="text-mutedSlate max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                현장의 생동감과 전문성을 겸비한 강사진이 학생들의 미래와 마주 걷습니다.
+            </p>
+        </div>
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+    </section>
+
+    <!-- [1] 대표 강사 섹션 -->
+    <section class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- 이미지 영역 -->
+                <div class="lg:col-span-5" data-aos="fade-right">
+                    <div class="profile-image-container bg-slate-200 relative group shadow-2xl">
+                        <!-- !!! 대표 강사 이미지 URL 수정하는 곳 !!! -->
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" 
+                             alt="대표강사 서윤호" 
+                             class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500">
+                        <div class="absolute inset-0 border-[16px] border-white/10 pointer-events-none"></div>
+                        <div class="absolute bottom-8 left-8">
+                            <h2 class="text-white text-3xl font-black drop-shadow-lg">서윤호 <span class="text-xl font-medium opacity-90">대표강사</span></h2>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 텍스트 영역 -->
+                <div class="lg:col-span-7 space-y-10" data-aos="fade-left">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-8 h-1 bg-cyan"></div>
+                            <h3 class="text-2xl font-bold">이력 소개</h3>
+                        </div>
+                        <ul class="grid md:grid-cols-2 gap-y-3 gap-x-6 pl-5 text-mutedSlate">
+                            <li class="career-dot font-semibold text-realNavy">現 전문사회 업체 [스테이지온] 대표</li>
+                            <li class="career-dot">現 [청소년 레크리에이션] 강사</li>
+                            <li class="career-dot">現 [자기주도 학습] 컨설팅 및 지도자</li>
+                            <li class="career-dot">現 [나를 알리는 스피치] 강사</li>
+                            <li class="career-dot">現 [회복탄력성 · 자존감향상] 강연가</li>
+                            <li class="career-dot">現 [동기부여] 강연가</li>
+                            <li class="career-dot">現 [진로 · 인성 · 동기부여 콘서트] 기획 및 강연가</li>
+                            <li class="career-dot">現 [디지털 윤리] 강사</li>
+                            <li class="career-dot">現 [기업 단합 팀빌딩] 강사</li>
+                            <li class="career-dot">現 [비즈니스 역량 강화] 강사</li>
+                            <li class="career-dot">前 공연예술단 [심술] 단장</li>
+                            <li class="career-dot">前 청소년센터 연기지도 강사</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-card relative border border-cyan/10">
+                        <i class="fa-solid fa-quote-left text-cyan/20 text-5xl absolute top-6 left-6"></i>
+                        <div class="relative z-10">
+                            <p class="text-lg leading-relaxed font-medium text-slate-700 italic mb-6">
+                                "전하고자 하는 의미가 잘 전달되면 좋은 강사일까?"<br>
+                                "재미있게만 하면 좋은 강사일까?"
+                            </p>
+                            <p class="text-slate-600 leading-relaxed">
+                                안녕하세요! 수년간 초, 중, 고등학교 뿐만 아니라 대학교에서 강의를 해오며 좋은 강사와 강의에 대해 깊이 고민해왔습니다. 아직도 고민의 '정답'은 찾지 못했지만 계속해서 묻고 또 물어가며 학생들에게 조금 더 좋은 강사가 되기 위해 힘쓰고 있습니다.<br><br>
+                                적어도 학생들의 기억에 남는 한 순간이 될 수 있다면, 시간이 흐른 후에도 그 기억이 소중히 여겨질 수 있다면 그것이 조금이나마 좋은 강의라고 생각하며 학생들과의 만남을 소중히 여기고 있습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [2] 강사 및 운영진 섹션 -->
+    <section class="py-24 bg-white px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h3 class="text-3xl font-bold mb-4">함께하는 파트너</h3>
+                <p class="text-mutedSlate">최고의 교육 서비스를 위해 함께 달리는 운영 및 강사진입니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                
+                <!-- 강사 1 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="profile-image-container bg-slate-100 mb-8 shadow-lg group-hover:-translate-y-2 transition-transform duration-300">
+                        <!-- !!! 강사 1 이미지 URL 수정하는 곳 !!! -->
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" 
+                             alt="강사 A" 
+                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <div class="px-4 text-center sm:text-left">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-4 justify-center sm:justify-start">
+                            <h4 class="text-2xl font-extrabold">박주연</h4>
+                            <span class="text-cyan font-bold text-sm uppercase">Program Manager</span>
+                        </div>
+                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">
+                            "학생들의 눈높이에서 공감하며, 실제적인 변화를 이끌어내는 교육을 지향합니다."
+                        </p>
+                        <ul class="text-sm space-y-2 text-mutedSlate border-t border-slate-100 pt-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan text-xs"></i> 現 한페이지 교육 프로그램 운영 팀장</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan text-xs"></i> 現 진로 설계 전문 퍼실리테이터</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan text-xs"></i> 前 OO교육센터 전임 강사</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 강사 2 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="profile-image-container bg-slate-100 mb-8 shadow-lg group-hover:-translate-y-2 transition-transform duration-300">
+                        <!-- !!! 강사 2 이미지 URL 수정하는 곳 !!! -->
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800" 
+                             alt="강사 B" 
+                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <div class="px-4 text-center sm:text-left">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-4 justify-center sm:justify-start">
+                            <h4 class="text-2xl font-extrabold">이승규</h4>
+                            <span class="text-cyan font-bold text-sm uppercase">Specialist Instructor</span>
+                        </div>
+                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">
+                            "지식 전달을 넘어, 삶의 태도를 변화시키는 울림 있는 강의를 약속드립니다."
+                        </p>
+                        <ul class="text-sm space-y-2 text-mutedSlate border-t border-slate-100 pt-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan text-xs"></i> 現 디지털 윤리 교육 전문 강사</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan text-xs"></i> 現 청소년 인성교육 콘텐츠 기획자</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan text-xs"></i> OO대학교 진로 캠프 멘토</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 (재사용) -->
+    <footer class="bg-white pt-16 pb-12 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="font-extrabold text-2xl text-slate-300 mb-6 uppercase tracking-widest">Onepage Company</div>
+            <div class="text-slate-400 text-sm">
+                <p>문의: onepage@onepage.or.kr | 대표번호: 010-8503-2130</p>
+                <p class="mt-2">Copyright © 2025 한페이지 컴퍼니. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // AOS 초기화
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>
