@@ -66,8 +66,16 @@
                 <span class="font-extrabold text-2xl tracking-tight text-realNavy group-hover:text-cyan transition-colors">한페이지</span>
             </a>
             <div class="hidden md:flex items-center gap-8 text-sm font-bold">
-                <a href="#" class="hover:text-cyan transition-colors"></a>
+                <!-- 홈으로 버튼 추가 -->
+                <a href="index.html" class="flex items-center gap-1.5 hover:text-cyan transition-colors group">
+                    <i class="fa-solid fa-house text-xs opacity-70 group-hover:opacity-100"></i>
+                    홈으로
+                </a>
                 <a href="#" class="bg-realNavy text-white px-5 py-2 rounded-full hover:bg-cyan transition-all">강사 소개</a>
+            </div>
+            <!-- 모바일용 홈 버튼 (선택사항) -->
+            <div class="md:hidden">
+                <a href="index.html" class="p-2 text-realNavy hover:text-cyan"><i class="fa-solid fa-house"></i></a>
             </div>
         </div>
     </nav>
@@ -206,7 +214,7 @@
         </div>
     </section>
 
-    <!-- 푸터 (재사용) -->
+    <!-- 푸터 -->
     <footer class="bg-white pt-16 pb-12 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <div class="font-extrabold text-2xl text-slate-300 mb-6 uppercase tracking-widest">Onepage Company</div>
