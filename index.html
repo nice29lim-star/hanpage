@@ -22,26 +22,31 @@
         }
     </script>
     <style>
-        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.03); }
+        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); }
         .hero-section { background: linear-gradient(180deg, #D6E6F5 0%, #E6F0FA 100%); position: relative; overflow: hidden; }
         .hero-section::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 60%); animation: breathe 10s infinite alternate; }
         @keyframes breathe { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
         .icon-wrapper { background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 100%); display: flex; align-items: center; justify-content: center; border-radius: 50%; box-shadow: 0 10px 25px rgba(127, 146, 163, 0.2); }
+        
+        /* 로딩 및 전환 애니메이션 */
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="bg-bgGray text-realNavy font-sans antialiased overflow-x-hidden">
 
-    <!-- 네비게이션 -->
+    <!-- 1. 고정 헤더 (네비게이션) -->
+    <!-- 이 부분은 페이지가 바뀌어도 절대 사라지지 않습니다 -->
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- 로고 클릭 시 index.html로 이동 -->
-            <a href="index.html" class="flex items-center gap-2 group">
+            <!-- 로고: 클릭 시 초기화면으로 복귀 -->
+            <a href="index.html" onclick="resetMain(event)" class="flex items-center gap-2 group cursor-pointer">
                 <span class="font-extrabold text-2xl tracking-tight text-realNavy group-hover:text-cyan transition-colors">한페이지</span>
             </a>
             
             <div class="flex items-center gap-4">
-                <!-- 홈으로 가기 버튼 -->
-                <a href="index.html" class="text-sm font-bold text-mutedSlate hover:text-realNavy transition-colors flex items-center gap-1 px-2 py-1">
+                <!-- 홈으로 버튼: 클릭 시 초기화면으로 복귀 -->
+                <a href="index.html" onclick="resetMain(event)" class="text-sm font-bold text-mutedSlate hover:text-realNavy transition-colors flex items-center gap-1 px-3 py-2 rounded-lg hover:bg-slate-100 cursor-pointer">
                     <i class="fa-solid fa-house"></i> <span class="hidden sm:inline">홈으로</span>
                 </a>
                 <div class="hidden md:block text-sm text-white font-bold bg-realNavy px-4 py-1.5 rounded-full shadow-md">진로 & 인성 교육 전문</div>
@@ -49,8 +54,9 @@
         </div>
     </nav>
 
-    <!-- 히어로 섹션 -->
-    <section class="hero-section h-[600px] flex flex-col justify-center items-center text-center px-4 relative">
+    <!-- 2. 고정 히어로 타이틀 -->
+    <!-- 이 부분도 사라지지 않고 계속 유지됩니다 -->
+    <section class="hero-section h-[500px] flex flex-col justify-center items-center text-center px-4 relative pt-16">
         <div class="relative z-10" data-aos="fade-up" data-aos-duration="1000">
             <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 text-realNavy tracking-tight">
                 꿈을 찾는 <span class="text-cyan inline-block relative">한 페이지<svg class="absolute w-full h-3 -bottom-1 left-0 text-cyan opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="8" fill="none" /></svg></span>의 힘
@@ -60,28 +66,32 @@
         <div class="absolute bottom-10 animate-bounce text-realNavy/40 z-10"><i class="fa-solid fa-chevron-down text-2xl"></i></div>
     </section>
 
-    <!-- 메인 컨텐츠 영역 -->
-    <main class="max-w-7xl mx-auto px-6 -mt-24 relative z-10 pb-24">
+    <!-- 3. 가변 컨텐츠 영역 -->
+    <!-- 이곳의 내용이 [메뉴 그리드] <-> [상세 내용] 으로 교체됩니다 -->
+    <main class="max-w-7xl mx-auto px-6 -mt-24 relative z-10 pb-24 min-h-[600px]">
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- 1. 교육 프로그램 링크 -->
-            <a href="한페이지 소개 페이지.html" class="bg-white rounded-[2rem] p-8 md:p-10 shadow-card hover:shadow-card-hover hover:-translate-y-3 transition-all duration-300 border border-white/50 group block h-full flex flex-col items-center text-center w-full" data-aos="fade-up" data-aos-delay="100">
+        <!-- [A] 초기 메뉴 그리드 (처음에 보임) -->
+        <div id="main-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 transition-opacity duration-300">
+            
+            <!-- 교육 프로그램 -->
+            <!-- href는 유지하되, onclick으로 페이지 이동을 가로채서 아래쪽에 내용만 로드합니다 -->
+            <a href="한페이지 소개 페이지.html" onclick="loadExternalPage(event, this.href)" class="bg-white rounded-[2rem] p-8 md:p-10 shadow-card hover:shadow-card-hover hover:-translate-y-3 transition-all duration-300 border border-white/50 group block h-full flex flex-col items-center text-center w-full" data-aos="fade-up" data-aos-delay="100">
                 <div class="icon-wrapper w-32 h-32 mb-8 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-book-open text-5xl text-cyan"></i></div>
                 <h2 class="text-2xl font-bold mb-4 text-realNavy group-hover:text-cyan transition-colors">교육 프로그램</h2>
                 <p class="text-mutedSlate mb-8 leading-relaxed flex-grow">인성에서 진로 설계까지<br>한페이지 컴퍼니만의 체계적인 배움</p>
                 <div class="inline-block px-6 py-2 rounded-full bg-skyBlue text-sm font-bold text-realNavy group-hover:bg-cyan group-hover:text-white transition-colors">커리큘럼 확인 <i class="fa-solid fa-arrow-right ml-1"></i></div>
             </a>
 
-            <!-- 2. 파트너 소개 링크 -->
-            <a href="한페이지 강사 소개.html" class="bg-white rounded-[2rem] p-8 md:p-10 shadow-card hover:shadow-card-hover hover:-translate-y-3 transition-all duration-300 border border-white/50 group block h-full flex flex-col items-center text-center w-full" data-aos="fade-up" data-aos-delay="200">
+            <!-- 파트너 소개 -->
+            <a href="한페이지 강사 소개.html" onclick="loadExternalPage(event, this.href)" class="bg-white rounded-[2rem] p-8 md:p-10 shadow-card hover:shadow-card-hover hover:-translate-y-3 transition-all duration-300 border border-white/50 group block h-full flex flex-col items-center text-center w-full" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon-wrapper w-32 h-32 mb-8 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-users text-5xl text-cyan"></i></div>
                 <h2 class="text-2xl font-bold mb-4 text-realNavy group-hover:text-cyan transition-colors">파트너 소개</h2>
                 <p class="text-mutedSlate mb-8 leading-relaxed flex-grow">전문 대표강사와 PM 그룹이<br>학생들과 함께 호흡하는 멘토링</p>
                 <div class="inline-block px-6 py-2 rounded-full bg-skyBlue text-sm font-bold text-realNavy group-hover:bg-cyan group-hover:text-white transition-colors">강사진 프로필 <i class="fa-solid fa-arrow-right ml-1"></i></div>
             </a>
 
-            <!-- 3. 교육 활동 현장 링크 -->
-            <a href="한페이지 교육 자료 페이지.html" class="bg-white rounded-[2rem] p-8 md:p-10 shadow-card hover:shadow-card-hover hover:-translate-y-3 transition-all duration-300 border border-white/50 group block h-full flex flex-col items-center text-center w-full" data-aos="fade-up" data-aos-delay="300">
+            <!-- 교육 활동 현장 -->
+            <a href="한페이지 교육 자료 페이지.html" onclick="loadExternalPage(event, this.href)" class="bg-white rounded-[2rem] p-8 md:p-10 shadow-card hover:shadow-card-hover hover:-translate-y-3 transition-all duration-300 border border-white/50 group block h-full flex flex-col items-center text-center w-full" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-wrapper w-32 h-32 mb-8 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-images text-5xl text-cyan"></i></div>
                 <h2 class="text-2xl font-bold mb-4 text-realNavy group-hover:text-cyan transition-colors">교육 활동 현장</h2>
                 <p class="text-mutedSlate mb-8 leading-relaxed flex-grow">텍스트가 아닌 경험으로 배우는 시간<br>생생한 활동 영상과 이미지 갤러리</p>
@@ -89,9 +99,35 @@
             </a>
         </div>
 
+        <!-- [B] 상세 내용 영역 (처음엔 숨김) -->
+        <div id="content-viewer" class="hidden fade-in bg-white/80 backdrop-blur-md rounded-[2rem] p-6 md:p-12 border border-white shadow-xl min-h-[400px]">
+            <!-- 상단 네비게이션 (닫기 버튼) -->
+            <div class="flex justify-between items-center mb-8 border-b border-slate-200 pb-4">
+                <h3 class="text-lg font-bold text-realNavy"><i class="fa-solid fa-file-lines mr-2 text-cyan"></i>상세 내용</h3>
+                <button onclick="resetMain(event)" class="text-sm font-bold text-mutedSlate hover:text-realNavy flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm hover:shadow-md transition-all border border-slate-200">
+                    <i class="fa-solid fa-xmark"></i> 닫기 (메뉴로)
+                </button>
+            </div>
+            
+            <!-- 외부 HTML 내용이 들어갈 곳 -->
+            <div id="external-content-body" class="prose max-w-none text-realNavy">
+                <!-- 로딩 중 표시 -->
+                <div class="flex flex-col justify-center items-center h-40 text-mutedSlate">
+                    <i class="fa-solid fa-spinner fa-spin text-3xl mb-3 text-cyan"></i>
+                    <p>페이지 내용을 불러오고 있습니다...</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button onclick="resetMain(event)" class="px-8 py-3 bg-skyBlue text-realNavy font-bold rounded-xl hover:bg-cyan hover:text-white transition-colors">
+                    다른 프로그램 보기
+                </button>
+            </div>
+        </div>
+
     </main>
 
-    <!-- 하단 배너 -->
+    <!-- 하단 배너 (고정) -->
     <section class="bg-white py-20 px-6 border-t border-slate-100">
         <div class="max-w-4xl mx-auto text-center" data-aos="zoom-in">
             <h3 class="text-3xl font-bold mb-6 text-realNavy">성장의 첫 페이지를 함께 쓰세요</h3>
@@ -103,7 +139,7 @@
         </div>
     </section>
 
-    <!-- 푸터 -->
+    <!-- 푸터 (고정) -->
     <footer class="bg-white pt-16 pb-12 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <div class="font-extrabold text-2xl text-slate-300 mb-6">ONEPAGE COMPANY</div>
@@ -149,30 +185,83 @@
         // 문의 모달 제어
         const contactModal = document.getElementById('contactModal'); 
         const contactContent = document.querySelector('.contact-modal-content');
-        
-        function openContactModal() { 
-            contactModal.classList.remove('hidden'); 
-            setTimeout(() => { 
-                contactModal.classList.remove('opacity-0'); 
-                contactContent.classList.remove('scale-95'); 
-                contactContent.classList.add('scale-100'); 
-            }, 10); 
-            document.body.style.overflow = 'hidden'; 
+        function openContactModal() { contactModal.classList.remove('hidden'); setTimeout(() => { contactModal.classList.remove('opacity-0'); contactContent.classList.remove('scale-95'); contactContent.classList.add('scale-100'); }, 10); document.body.style.overflow = 'hidden'; }
+        function closeContactModal() { contactModal.classList.add('opacity-0'); contactContent.classList.remove('scale-100'); contactContent.classList.add('scale-95'); setTimeout(() => { contactModal.classList.add('hidden'); document.body.style.overflow = 'auto'; }, 300); }
+        window.addEventListener('click', (e) => { if (e.target === contactModal) closeContactModal(); });
+
+        // ==============================================
+        //  화면 전환 스크립트 (헤더/타이틀 고정 기능)
+        // ==============================================
+        const mainGrid = document.getElementById('main-grid');
+        const contentViewer = document.getElementById('content-viewer');
+        const externalContentBody = document.getElementById('external-content-body');
+
+        // 1. 외부 페이지 내용 불러오기
+        async function loadExternalPage(event, url) {
+            // 로컬 파일 실행 시 보안 문제로 fetch가 안 될 수 있음 -> 그땐 일반 링크 이동
+            if (window.location.protocol === 'file:') return;
+
+            event.preventDefault(); // 링크 이동 막기
+
+            // 화면 전환 (그리드 숨김 -> 뷰어 보임)
+            mainGrid.classList.add('hidden');
+            contentViewer.classList.remove('hidden');
+            
+            // 로딩 표시
+            externalContentBody.innerHTML = `
+                <div class="flex flex-col justify-center items-center h-40 text-mutedSlate">
+                    <i class="fa-solid fa-spinner fa-spin text-3xl mb-3 text-cyan"></i>
+                    <p>페이지 내용을 불러오고 있습니다...</p>
+                </div>
+            `;
+
+            // 부드러운 스크롤 이동 (타이틀 바로 아래로)
+            const heroHeight = document.querySelector('.hero-section').offsetHeight;
+            window.scrollTo({ top: heroHeight - 80, behavior: 'smooth' });
+
+            try {
+                // 외부 HTML 파일 가져오기
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('페이지 로드 실패');
+                const text = await response.text();
+                
+                // HTML 파싱하여 body 내용만 추출
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/html');
+                
+                // 불필요한 태그(nav, footer 등) 제거하고 순수 내용만 가져오기
+                const content = doc.body;
+                const nav = content.querySelector('nav');
+                const footer = content.querySelector('footer');
+                if (nav) nav.remove();
+                if (footer) footer.remove();
+
+                // 내용 주입
+                externalContentBody.innerHTML = content.innerHTML;
+
+            } catch (error) {
+                console.error(error);
+                externalContentBody.innerHTML = `
+                    <div class="text-center py-10">
+                        <p class="text-red-500 mb-4">내용을 불러오는데 실패했습니다.</p>
+                        <a href="${url}" class="px-4 py-2 bg-realNavy text-white rounded-lg">직접 페이지로 이동하기</a>
+                    </div>
+                `;
+            }
         }
-        
-        function closeContactModal() { 
-            contactModal.classList.add('opacity-0'); 
-            contactContent.classList.remove('scale-100'); 
-            contactContent.classList.add('scale-95'); 
-            setTimeout(() => { 
-                contactModal.classList.add('hidden'); 
-                document.body.style.overflow = 'auto'; 
-            }, 300); 
+
+        // 2. 홈으로 돌아가기 (초기화)
+        function resetMain(event) {
+            if (event) event.preventDefault();
+            
+            contentViewer.classList.add('hidden');
+            mainGrid.classList.remove('hidden');
+            mainGrid.classList.add('fade-in'); // 다시 나타날 때 애니메이션
+            
+            // 스크롤 위로
+            const heroHeight = document.querySelector('.hero-section').offsetHeight;
+            window.scrollTo({ top: heroHeight - 150, behavior: 'smooth' });
         }
-        
-        window.addEventListener('click', (e) => { 
-            if (e.target === contactModal) closeContactModal(); 
-        });
     </script>
 </body>
 </html>
