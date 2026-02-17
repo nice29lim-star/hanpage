@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>한페이지</title>
+    <title>한페이지 | 갤러리</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -55,14 +55,21 @@
                 <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                     <span class="text-white font-bold">1</span>
                 </div>
-                <h1 class="text-xl font-bold tracking-tight text-slate-900">ONEPAGE <span class="text-blue-600">GALLERY</span></h1>
+                <!-- ONEPAGE를 한페이지로 수정 -->
+                <h1 class="text-xl font-bold tracking-tight text-slate-900">한페이지 <span class="text-blue-600">GALLERY</span></h1>
             </div>
-            <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#main-feature" class="text-slate-600 hover:text-blue-600">대표영상</a>
-                <a href="#video-category" class="text-slate-600 hover:text-blue-600">교육영상</a>
-                <a href="#image-category" class="text-slate-600 hover:text-blue-600">활동사진</a>
-            </nav>
-            <a href="#" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">홈으로</a>
+            
+            <div class="flex items-center gap-8">
+                <nav class="hidden md:flex space-x-8 text-sm font-medium border-r border-slate-100 pr-8">
+                    <a href="#main-feature" class="text-slate-600 hover:text-blue-600 transition-colors">대표영상</a>
+                    <a href="#video-category" class="text-slate-600 hover:text-blue-600 transition-colors">교육영상</a>
+                    <a href="#image-category" class="text-slate-600 hover:text-blue-600 transition-colors">활동사진</a>
+                </nav>
+                <a href="index.html" class="flex items-center gap-1.5 text-sm font-bold text-slate-600 hover:text-blue-600 transition-all group">
+                    <i data-lucide="home" class="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                    홈으로
+                </a>
+            </div>
         </div>
     </header>
 
@@ -113,7 +120,6 @@
                 <!-- 영상 1 -->
                 <div class="gallery-item relative overflow-hidden rounded-2xl cursor-pointer group bg-slate-200 img-placeholder" 
                      onclick="openModal('video', 'https://c4b060e3ixlqwppf.public.blob.vercel-storage.com/%ED%95%9C%ED%8E%98%EC%9D%B4%EC%A7%80_%EB%A0%88%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%EC%85%98.mov')">
-                    <!-- 마우스 오버 시 미리보기 재생 -->
                     <video class="w-full h-64 object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" playsinline>
                         <source src="https://c4b060e3ixlqwppf.public.blob.vercel-storage.com/%ED%95%9C%ED%8E%98%EC%9D%B4%EC%A7%80_%EB%A0%88%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%EC%85%98.mov" type="video/mp4">
                     </video>
@@ -316,7 +322,7 @@
                     modalFrame.src = `https://drive.google.com/file/d/${id}/preview?autoplay=1`;
                     videoContainer.classList.remove('hidden');
                 } else {
-                    // Vercel 등 직접 링크(.mp4 등)인 경우 표준 플레이어 사용
+                    // 직접 링크(.mp4 등)인 경우 표준 플레이어 사용
                     modalVid.src = target;
                     modalVid.classList.remove('hidden');
                     modalVid.play();
